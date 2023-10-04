@@ -1,0 +1,411 @@
+<html><head>
+    <meta charset="utf-8">
+
+    <title>スイカゲーム（Suika Game）- スマホでWEBプレイ</title>
+    <meta name="description" content="スイカのゲームをスマホ（PC/iPhone/Android）ブラウザで無料プレイする事ができるWEBサイトです。「スイカのゲーム」ルールは、フルーツを落としてくっつけてスイカを作りつづけるだけです。スコアを競い合いましょう">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1, minimum-scale=1,maximum-scale=1,minimal-ui=true">
+    <link rel="icon" href="https://suika-game.app/public/res/favicon.ico">
+    <link rel="canonical" href="https://suika-game.app">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <link rel="apple-touch-icon" href="https://suika-game.app/public/res/suikaicon.png">
+    <meta name="apple-mobile-web-app-title" content="スイカのゲーム">
+    <meta name="format-detection" content="telephone=no">
+    <script src="https://partner.googleadservices.com/gampad/cookie.js?domain=suika-game.app&amp;callback=_gfp_s_&amp;client=ca-pub-2934182617348947"></script><script src="https://pagead2.googlesyndication.com/pagead/managed/js/adsense/m202309210101/show_ads_impl_fy2021.js" id="google_shimpl"></script><script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    
+    <!-- webkit on 360 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <!-- edge on IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="msapplication-tap-highlight" content="no">
+
+    <!-- fullscreen -->
+    <meta name="full-screen" content="yes">
+    <meta name="x5-fullscreen" content="true">
+    <meta name="360-fullscreen" content="true">
+
+    <!-- screen orientation on some browser -->
+    <meta name="screen-orientation" content="">
+    <meta name="x5-orientation" content="">
+
+    <meta name="x5-page-mode" content="app">
+
+    <meta property="og:title" content="スイカのゲームをWEBプレイ">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://suika-game.app">
+    <meta property="og:image" content="https://suika-game.app/public/res/suika-ogp.png">
+    <meta property="og:description" content="スイカのゲームをスマホ（PC/iPhone/Android）ブラウザで無料プレイする事ができるWEBサイトです。「スイカのゲーム」ルールは、フルーツを落としてくっつけてスイカを作りつづけるだけです。スコアを競い合いましょう">
+    <meta property="og:site_name" content="スイカのゲーム">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:domain" content="suika-game.app">
+    <meta name="twitter:title" content="スイカのゲームをWEBプレイ">
+    <meta name="twitter:description" content="スイカのゲームをスマホ（PC/iPhone/Android）ブラウザで無料プレイする事ができるWEBサイトです。「スイカのゲーム」ルールは、フルーツを落としてくっつけてスイカを作りつづけるだけです。スコアを競い合いましょう">
+    <meta name="twitter:image" content="https://suika-game.app/public/res/suika-ogp.png">
+
+    <meta name="google-adsense-account" content="ca-pub-2934182617348947">
+	<!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-1DCFKKPLP0"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-1DCFKKPLP0');
+    </script>
+    
+    <script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2934182617348947" crossorigin="anonymous" data-checked-head="true"></script>
+
+    <link rel="stylesheet" type="text/css" href="/public/style-mobile.css">
+    <script src="/public/layer/jquery.min.js"></script>
+    <script src="/public/layer/layer.min.js"></script><link rel="stylesheet" href="https://suika-game.app/public/layer/layer.css" id="layuicss-layercss">
+    <link href="/public/layer/layer.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;600;900&amp;display=swap" rel="stylesheet">
+    <script src="/public/hammer.min.js"></script>
+    <link href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" rel="stylesheet">
+    <script async="" src="https://serving.lookverin.com/player/adlook.js"></script>
+<meta http-equiv="origin-trial" content="A7CQXglZzTrThjGTBEn1rWTxHOEtkWivwzgea+NjyardrwlieSjVuyG44PkYgIPGs8Q9svD8sF3Yedn0BBBjXAkAAACFeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjk1MTY3OTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A3vKT9yxRPjmXN3DpIiz58f5JykcWHjUo/W7hvmtjgh9jPpQgem9VbADiNovG8NkO6mRmk70Kex8/KUqAYWVWAEAAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjk1MTY3OTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A4A26Ymj79UVY7C7JGUS4BG1s7MdcDokAQf/RP0paks+RoTYbXHxceT/5L4iKcsleFCngi75YfNRGW2+SpVv1ggAAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjk1MTY3OTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="As0hBNJ8h++fNYlkq8cTye2qDLyom8NddByiVytXGGD0YVE+2CEuTCpqXMDxdhOMILKoaiaYifwEvCRlJ/9GcQ8AAAB8eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3MTk1MzI3OTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="AgRYsXo24ypxC89CJanC+JgEmraCCBebKl8ZmG7Tj5oJNx0cmH0NtNRZs3NB5ubhpbX/bIt7l2zJOSyO64NGmwMAAACCeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3MTk1MzI3OTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="AymqwRC7u88Y4JPvfIF2F37QKylC04248hLCdJAsh8xgOfe/dVJPV3XS3wLFca1ZMVOtnBfVjaCMTVudWM//5g4AAAB7eyJvcmlnaW4iOiJodHRwczovL3d3dy5nb29nbGV0YWdtYW5hZ2VyLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjk1MTY3OTk5LCJpc1RoaXJkUGFydHkiOnRydWV9"><style>.cocosVideo:-moz-full-screen{transform:matrix(1,0,0,1,0,0) !important;}.cocosVideo:full-screen{transform:matrix(1,0,0,1,0,0) !important;}.cocosVideo:-webkit-full-screen{transform:matrix(1,0,0,1,0,0) !important;}</style><meta id="cocosMetaElement" name="viewport" content="width=device-width,user-scalable=no,initial-scale=1, minimum-scale=1,maximum-scale=1,minimal-ui=true"></head>
+
+
+
+<body style="margin: 0; background: #FFD59D; text-align:center;">
+
+<section class="game-area">
+    <!-- <scirpt>var ip = '2400:2200:747:c4f8:84c2:2098:25a:89e4, 172.70.122.43';</scirpt> -->
+
+    
+        
+
+<div class="tinder loaded" id="scoreScreen" style="z-index: 999; display: none; ">
+    <div class="tinder--cards">
+        <div class="tinder--card" style="box-shadow: rgba(111, 76, 11, 0.3) 0px 0px 10px 8px; position: absolute; padding-top: 0px; top: 6vw; left: 3vw; width: 94vw; border-radius: 15px; border: 6px solid rgb(255, 255, 255); background-color: rgb(255, 194, 0); z-index: 1; transform: scale(1) translateY(0px); opacity: 1; touch-action: pan-y; -webkit-user-select: none; -webkit-touch-callout: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
+            
+            <nav>
+                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                  <button class="nav-link col-6 active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">
+                  ベストスコア
+                  </button>
+                  <button class="nav-link col-6" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">
+                  スイカRTA
+                  </button>
+                </div>
+              </nav>
+              <div class="tab-content" id="nav-tabContent" style="pointer-events: none;">
+                <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                    <h2 style="pointer-events: none;">あなたのスコア</h2>
+                    <div class="container" data-ip="2400:2200:747:c4f8:84c2:2098:25a:89e4, 172.70.122.43" id="GameMyScoreResult" style="pointer-events: none; margin: 0 auto; display: flex;
+                        flex-direction: row;
+                        flex-wrap: wrap;
+                        align-content: flex-start;
+                        justify-content: space-between;">
+                        <p>読み込み中</p>
+                    </div>
+
+                    <h2 style="pointer-events: none;">世界ランキング（週）</h2>
+                    <div class="container" data-ip="2400:2200:747:c4f8:84c2:2098:25a:89e4, 172.70.122.43" id="GameWeekScoreResult" style="pointer-events: none; margin: 0 auto; display: flex;
+                        flex-direction: row;
+                        flex-wrap: wrap;
+                        align-content: flex-start;
+                        justify-content: space-between; padding-bottom: 15px;">
+                        <p>読み込み中</p>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+
+                    <h2 style="pointer-events: none;">あなたのスイカタイム</h2>
+
+
+                    <div class="container" data-ip="2400:2200:747:c4f8:84c2:2098:25a:89e4, 172.70.122.43" id="GameMySuikaScoreResult" style="pointer-events: none; margin: 0 auto; display: flex;
+                        flex-direction: row;
+                        flex-wrap: wrap;
+                        align-content: flex-start;
+                        justify-content: space-between;">
+                        <p>読み込み中</p>
+                    </div>
+                    
+                    <h2 style="pointer-events: none;">世界ランキング（週）</h2>
+                    <div class="container" data-ip="2400:2200:747:c4f8:84c2:2098:25a:89e4, 172.70.122.43" id="GameWeekSuikaScoreResult" style="pointer-events: none; margin: 0 auto; display: flex;
+                        flex-direction: row;
+                        flex-wrap: wrap;
+                        align-content: flex-start;
+                        justify-content: space-between; padding-bottom: 15px;">
+                        <p>読み込み中</p>
+                    </div>
+                </div>
+              </div>
+
+        
+
+            <button type="button" id="scoreCloseButton" style=" height: 12vw; width:12vw; margin-top: 0; position: absolute; z-index: 999;bottom:-7.5vw; left: 0; right: 0; margin: 0 auto; border: 3px solid #FFF; background-color: rgb(4, 106, 222);" class="fas fa-times btn rounded-pill btn-primary btn-lg"></button>
+        </div>
+    </div>
+    </div>
+
+
+    <section id="GameEndScoreScreen" style="display:none; position: absolute; top:0px; width:100vw; height:100vh; background-color:rgba(0, 0, 0, 0.9); z-index:999; ">
+
+        <h1>GAME OVER</h1>
+
+        <h2>Score</h2>
+
+        <div class="container" data-ip="2400:2200:747:c4f8:84c2:2098:25a:89e4, 172.70.122.43" id="ThisGameScoreResult" style="margin: 0 auto; display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-content: flex-start;
+            justify-content: space-between;">
+        </div>
+
+        <button type="button" id="TweetButton" style="position: absolute; right: 15px; top: 15px; z-index: 999" class="btn rounded-pill btn-primary btn-lg fab fa-twitter"></button>
+        <button type="button" id="restartButton" style="box-shadow: 0px 0px 10px 8px rgba(111, 76, 11, 0.3);width:90%; position: relative; z-index: 999; border: 3px solid #FFF; background-color: #f99f0a; padding:15px 100px;" class="btn rounded-pill btn-primary btn-lg fa fab fa-solid fa-play"></button>
+        <a href="/gorilla" id="gorillaButton" style="box-shadow: 0px 0px 10px 8px rgba(111, 76, 11, 0.3);width:90%; color:#FFF; position: relative; z-index: 999; border: 3px solid #FFF; background-color: #0a75f9; margin-top: 15px; padding:15px 30px;" class="btn rounded-pill btn-primary btn-lg">ゴリラゲームに挑戦する</a>
+
+        <div id="adsResult" style="position: absolute; bottom:0px; width:100vw;z-index:998;">
+            <!-- app -->
+            <script type="text/javascript" src="https://j.zucks.net.zimg.jp/j?f=617713"></script><div style="margin:0;border:0;padding:0;text-align:center;width:100%;height:250px;overflow:hidden;" id="zucksad506324445"><div style="position:relative;margin:0 auto;padding:0;border:0;width:300px"><div style="width:17px;height:15px;background:rgba(255, 255, 255, 0.8) url(&quot;https://static.zucks.net.zimg.jp/i/ads_by.png&quot;) no-repeat right top; background-size:85px 15px; position:absolute; right: 0; border-bottom-left-radius:4px;"><a href="https://zucks.co.jp/feedback/ads/?zucks_dncb=1&amp;fid=617713&amp;k=ZGOK&amp;p=ah6fJA-XM9FPEDBS5rA6b0yC0dpEFzt4nd7XWxija5dFzagAYrG5dSDw6S_BNHkmgFnYDxGPeVe7QCRL8yX824e6T72xFLjXwS_Vc02tVsl5saKh502nw8i2prRgR4do5hQjM3P-xzm2Els5LQW3Hg3bcrsVOu6GScrW7PCy0H87Xijjqqr_46NnEPrKY4yBccBe21p2j4nW3xVPicp0NzYtMWz7Lnlu9iDqvN8KuhLskiCo1xMO9g_JLWw6vI-s8v2u8vDMtMHrtd4ZI8WdC2PwliksSXR38-Dp17_LlpPKnzvW3urHubK7NwjgMT3azNT5d9TZG9qKjFruVkA7wADt7g-gk1_Bqy120nlyiIE02yatgNg6RVrlhyhBzFcMReaoREsslaFhyvbYh5kBmDC2B7xUcEOMVE9_anbpW52ExYC_aY8Th6BymSPf090Mhb2C7c5pEjAvwbtZRuy2MQip-UccIiCB_cuKxw8iiOScVwrLcJqRT4lFagDHVdc_aRtsSMDiBMBH7MApUqc8RncSmPfZU-UCfSyeGiUwSjNbc_Yh-0LNyjmVm6Qxi-KsYOuXpPos16npjo2Q3cIjAiNdDXxVAr-8S3WGj54WkxwbENFqqbcCdutVNg1KLsr-1loBMfYaR4FDlZfsp7mabqSh7u_49aNSEMRttxmVEVmZ7NbbRhrr28yKs5H4YrNNML7NHut8VAYVnIX5emQj4iD4kJmcwu_2Qcx2-NJlyXeT6qQekJFKlmmxfTXyraX_RdRiFA9f8Vk&amp;v=j9703LemOF4&amp;iu=image%2F2023%2F09%2F27%2Fc%2F113112_phpQiFFN3.jpeg&amp;loc=https%3A%2F%2Fsuika-game.app%2F" style="width:100%;height:100%;border:0;margin:0;padding:0;display:none;" target="_blank" rel="noopener"> </a></div><a href="https://k.zucks.net/rd/?k=ZGOK&amp;p=ah6fJA-XM9FPEDBS5rA6b0yC0dpEFzt4nd7XWxija5dFzagAYrG5dSDw6S_BNHkmgFnYDxGPeVe7QCRL8yX824e6T72xFLjXwS_Vc02tVsl5saKh502nw8i2prRgR4do5hQjM3P-xzm2Els5LQW3Hg3bcrsVOu6GScrW7PCy0H87Xijjqqr_46NnEPrKY4yBccBe21p2j4nW3xVPicp0NzYtMWz7Lnlu9iDqvN8KuhLskiCo1xMO9g_JLWw6vI-s8v2u8vDMtMHrtd4ZI8WdC2PwliksSXR38-Dp17_LlpPKnzvW3urHubK7NwjgMT3azNT5d9TZG9qKjFruVkA7wADt7g-gk1_Bqy120nlyiIE02yatgNg6RVrlhyhBzFcMReaoREsslaFhyvbYh5kBmDC2B7xUcEOMVE9_anbpW52ExYC_aY8Th6BymSPf090Mhb2C7c5pEjAvwbtZRuy2MQip-UccIiCB_cuKxw8iiOScVwrLcJqRT4lFagDHVdc_aRtsSMDiBMBH7MApUqc8RncSmPfZU-UCfSyeGiUwSjNbc_Yh-0LNyjmVm6Qxi-KsYOuXpPos16npjo2Q3cIjAiNdDXxVAr-8S3WGj54WkxwbENFqqbcCdutVNg1KLsr-1loBMfYaR4FDlZfsp7mabqSh7u_49aNSEMRttxmVEVmZ7NbbRhrr28yKs5H4YrNNML7NHut8VAYVnIX5emQj4iD4kJmcwu_2Qcx2-NJlyXeT6qQekJFKlmmxfTXyraX_RdRiFA9f8Vk&amp;v=j9703LemOF4&amp;l=1278" target="_top"><img src="https://static.zucks.net.zimg.jp/image/2023/09/27/c/113112_phpQiFFN3.jpeg" width="300" height="250" style="border:0;padding:0;margin:0;display:inline-block;width:300px;height:250px;-webkit-backface-visibility:visible;pointer-events:auto;vertical-align:bottom;"></a></div></div>
+            <!-- site -->
+            <!-- <script type="text/javascript" src="https://j.zucks.net.zimg.jp/j?f=616090"></script> -->
+        </div>
+    </section>
+
+
+    <div id="fruitsRefreshRewordInfo" style="box-shadow: rgba(111, 76, 11, 0.3) 0px 0px 10px 8px; position: absolute; display: none; padding-top:10px; top:calc(50vh - ((94vh - 50px) / 3)); left: 3vw; width:94vw; height:calc(94vh -50px); border-radius: 20vw; border:6px solid #FFF; background-color:rgb(255, 194, 0); z-index:999; ">
+            <img src="/public/res/rewordinfo.png">
+            <p style="margin-top:15px; color:#FFF; font-weight: 600;">動画広告を見ると<br>一度だけフルーツを交換できます。</p>
+
+
+        <div id="spinner" class="spinner-border text-light" style="display:none; margin:0 auto;width: 3rem; height: 3rem; margin-bottom: 8px;" role="status">
+        <span class="visually-">🍉</span>
+        </div>
+
+        <button type="button" id="fruitsRefreshReword" style="height: 15vw; width:80vw; margin-top: 0;  margin: 0 auto; margin-bottom:5px;border: 3px solid #FFF; background-color: rgb(4, 106, 222); font-weight: 600;" class="btn rounded-pill btn-primary btn-lg">フルーツを交換</button>
+        <button type="button" id="fruitsRefreshRewordCloseButton" style="height: 10vw; width:30vw; margin-top: 0;  margin: 0 auto; margin-bottom:15px; display: block;" class="btn rounded-pillbtn-lg">閉じる</button>
+    </div>
+
+
+    <img src="/public/res/rewardButton.png" id="fruitsRefreshRewordInfoButton" style="position: absolute; z-index: 997; display: block; top: 80px; right: 13px; width: 15vw; height: 15vw;">
+
+    <div id="adsResultfooter" style="position:fixed; z-index:998; display: block; bottom:0; width:100vw; background-color: #29A5BB;">
+        <div id="sp-standalone" style="display: none;">
+            <!-- app -->
+            <script type="text/javascript" src="https://j.zucks.net.zimg.jp/j?f=617581"></script><div style="margin:0;border:0;padding:0;text-align:center;width:100%;height:100px;overflow:hidden;" id="zucksad667557410"><div style="position:relative;margin:0 auto;padding:0;border:0;width:320px"><div style="width:17px;height:15px;background:rgba(255, 255, 255, 0.8) url(&quot;https://static.zucks.net.zimg.jp/i/ads_by.png&quot;) no-repeat right top; background-size:85px 15px; position:absolute; right: 0; border-bottom-left-radius:4px;"><a href="https://zucks.co.jp/feedback/ads/?zucks_dncb=1&amp;fid=617581&amp;k=ZGOK&amp;p=6wU8Tq9tAQ2ERjDj-c4kuAQuluVgQ-WRoqIGmvnMMXjr5YmWpGqrVoJAiXQrk5BqY6UMsRx3lf2-kOMzBOu_PnVWjHnB73UNaGAlZDytGUoJWZdEeIDoRXgMyLgxo2QXbyWzVZYD2rLig1DvufWcjF4M8H1KmEWUXLV3e8nGrmN9M33EBCOFAoXuadoPMqLPosDxl2uHX_BoZ27NfGuu1vtVz62p0bHFPzQzcK2c8ntRYQ15IweaPrvAJEoF58d8y-rQ5j6i1ZELdslqaeRcWpqtxPuCC4eb6It_eI00Kr2XgXtoBJ1vBBTJFo1jBeQFuOB39-TZ0Gct3DQDZLBpilRawG9MaPr49hyfl97rgxs7jlXoPMg7u1JLLhNzPL_ZwWjpJPejpzm1Yg_OzHEiDes6zBRi0-rmnafewTn4BbKyQVsTOeqSpOl5ygk-p_gNrd4K0hRGwULA9m0djgWfpxqwesuVcVmFWhyAHG9nLwoUYm-AW1SkwfCQyYXWMbcf-XpAGNDxA7Ic6N7Ch2ufkUkaTlSURwcx7vIby4RRfV345n8u3BxKfs6G9QDlekQ-nc4Mu8gQivz7xRwP7zlLMMLtVUxVxTAXp4Kpqbg1AloxQQdRD7b6mwKWyyLkaVD6VcBV2UDiw-J3SGwYjAi0VIh2psq0hyQCsX8pxcaBTYvSliAo1I6hGn3FZ6LfCUVERLBD_vBnB2v8FvE_3y_kpRoJhAhxBblW05cjdJ-CpSUlwt6Een1Ox9N-JUtgoq2BgO3hzibd-Ao-6YWlNLxRDcgdB2GTRln6t5YKVE5o5ULDpcY_IlyEcMu8nQ-sLt_fTb9Q4L1VyN05So0F3iNkUQRyh9A2VNSAMVYJ_pvPN9xkjoVEVua0Ic8Yw1w1n1wBrCh6v7vWenO4IluEEUsBNFVg0U2inO55Do2kMzCXhEbw2DQn6l_xuk05IDo_Ds3I6bnMUP9goy5QmEt5dAbnwIrCA6IP--rLK4GBGxnOJQSchEUggPO483AH6S62fvNmJwWZV4tNj19gvZSTZPiOwg&amp;v=-b0H57VuQDc&amp;iu=image%2F2022%2F05%2F02%2Fc%2F154925_phpUfjzQd.png&amp;loc=https%3A%2F%2Fsuika-game.app%2F" style="width:100%;height:100%;border:0;margin:0;padding:0;display:none;" target="_blank" rel="noopener"> </a></div><a href="https://k.zucks.net/rd/?k=ZGOK&amp;p=6wU8Tq9tAQ2ERjDj-c4kuAQuluVgQ-WRoqIGmvnMMXjr5YmWpGqrVoJAiXQrk5BqY6UMsRx3lf2-kOMzBOu_PnVWjHnB73UNaGAlZDytGUoJWZdEeIDoRXgMyLgxo2QXbyWzVZYD2rLig1DvufWcjF4M8H1KmEWUXLV3e8nGrmN9M33EBCOFAoXuadoPMqLPosDxl2uHX_BoZ27NfGuu1vtVz62p0bHFPzQzcK2c8ntRYQ15IweaPrvAJEoF58d8y-rQ5j6i1ZELdslqaeRcWpqtxPuCC4eb6It_eI00Kr2XgXtoBJ1vBBTJFo1jBeQFuOB39-TZ0Gct3DQDZLBpilRawG9MaPr49hyfl97rgxs7jlXoPMg7u1JLLhNzPL_ZwWjpJPejpzm1Yg_OzHEiDes6zBRi0-rmnafewTn4BbKyQVsTOeqSpOl5ygk-p_gNrd4K0hRGwULA9m0djgWfpxqwesuVcVmFWhyAHG9nLwoUYm-AW1SkwfCQyYXWMbcf-XpAGNDxA7Ic6N7Ch2ufkUkaTlSURwcx7vIby4RRfV345n8u3BxKfs6G9QDlekQ-nc4Mu8gQivz7xRwP7zlLMMLtVUxVxTAXp4Kpqbg1AloxQQdRD7b6mwKWyyLkaVD6VcBV2UDiw-J3SGwYjAi0VIh2psq0hyQCsX8pxcaBTYvSliAo1I6hGn3FZ6LfCUVERLBD_vBnB2v8FvE_3y_kpRoJhAhxBblW05cjdJ-CpSUlwt6Een1Ox9N-JUtgoq2BgO3hzibd-Ao-6YWlNLxRDcgdB2GTRln6t5YKVE5o5ULDpcY_IlyEcMu8nQ-sLt_fTb9Q4L1VyN05So0F3iNkUQRyh9A2VNSAMVYJ_pvPN9xkjoVEVua0Ic8Yw1w1n1wBrCh6v7vWenO4IluEEUsBNFVg0U2inO55Do2kMzCXhEbw2DQn6l_xuk05IDo_Ds3I6bnMUP9goy5QmEt5dAbnwIrCA6IP--rLK4GBGxnOJQSchEUggPO483AH6S62fvNmJwWZV4tNj19gvZSTZPiOwg&amp;v=-b0H57VuQDc&amp;l=1355" target="_top"><img src="https://static.zucks.net.zimg.jp/image/2022/05/02/c/154925_phpUfjzQd.png" width="320" height="100" style="border:0;padding:0;margin:0;display:inline-block;width:320px;height:100px;-webkit-backface-visibility:visible;pointer-events:auto;vertical-align:bottom;"></a></div></div>
+            <!-- site -->
+            <!-- <script type="text/javascript" src="https://j.zucks.net.zimg.jp/j?f=617185"></script> -->
+        </div>
+        <div id="sp-no-standalone" style="display: block;">
+            <!-- app -->
+            <script type="text/javascript" src="https://j.zucks.net.zimg.jp/j?f=617394"></script><div style="margin:0;border:0;padding:0;text-align:center;width:100%;height:50px;overflow:hidden;" id="zucksad121733102"><div style="position:relative;margin:0 auto;padding:0;border:0;width:320px"><div style="width:17px;height:15px;background:rgba(255, 255, 255, 0.8) url(&quot;https://static.zucks.net.zimg.jp/i/ads_by.png&quot;) no-repeat right top; background-size:85px 15px; position:absolute; right: 0; border-bottom-left-radius:4px;"><a href="https://zucks.co.jp/feedback/ads/?zucks_dncb=1&amp;fid=617394&amp;k=ZGOK&amp;p=3YERoAFsGxBfyQt_kUmEVmlJj8Xf499VO8tQZnJwTtL9ZGIsk9EaEtTEA2L5vkvTPJwW95hrnAEGF84wUAg5FJq6UWd0vAeSU341m1_WHeQx8axk2L1MTPHAwIP4SyT5fi29PH3nE8rFjmA3xkRQ_UuM3C6Y-vih5F6m3zXPEtM4EUPOSBGUgMoveS64bFTN70wokKq0CEuK_SZuYzTQlZ0TmS_t-SE-5P1jQBWgAO1s33jh2xLdUVUPEdsvILNtVFWObNBa-qJz1fz-Zo-aazwdRToSOozbpHsJIB8aLDNMMUcruDe5FCR87TQ47kG1wUTH7Bg6uE9qoGOmLj_KVu9q3Gpq1dJ8x206WYYik0fJTj4_B3KbQXRs4Pxl6aP8MueKbqktcOhduvUau0JG4L-T1Zxnrs1aZbokZZcsjaeKob2Pb4Y8qz0sIVX9w0qycfVCUF2kRWjMRju5gEbwPR41jnjtyHLuFZZGhX6ukNwWyE14-jbfN-onDgLAoAjHiJPJLkRoDiUS7xuk_wRXsZN4jI14PUZkGLcVu8zXTO6RN-nIOBwojRqqs0F5MzmxCU9dV2Ss0RaPHcXPwDwWyr3ttzuvvTnuaOPfeGOJdnHSyPugktQMOfSu18JDpjNwKwWzPeBTrfW7snp4bZkDmIgmUo5VbEV3JQqhxdLW_t0H0x1j5MKw77CGCXCe9CIJAszZBZ21n5RUeSk_60x67jwODPfGpiQvTV1jVKDw8ZLTqN_W6NFlUwL4cDbNbdc7DesggvQWoG9S9jgpNe-cs99AYYE6EBQsUQW-iR3jHl_SyIQx_eNFZQ46ZHMVyt6mqgM5x7lOcOUS3hbC0HsQdzupUEUgt8GQh2qvhRimJ_6QyJ3k0Tl9ugtd1MtG3Mb7WDTevwMa40I7QfBZAufWGJ-fJjMk84WYVJR3h5kEuDZnmcFnCdL4Y7iUPQm_hKmWQUjWcfTaeaQVFFDiVF61faXofE9E-fHF2AuAdKnaDvawxTPVViw59RiCbMEIY7JGEwlj3vRQkTQS3Mvl6d-exw&amp;v=O73mTjEDvmk&amp;iu=image%2F2023%2F07%2F26%2Fc%2F160138_phpVJ3kI1.png&amp;loc=https%3A%2F%2Fsuika-game.app%2F" style="width:100%;height:100%;border:0;margin:0;padding:0;display:none;" target="_blank" rel="noopener"> </a></div><a href="https://k.zucks.net/rd/?k=ZGOK&amp;p=3YERoAFsGxBfyQt_kUmEVmlJj8Xf499VO8tQZnJwTtL9ZGIsk9EaEtTEA2L5vkvTPJwW95hrnAEGF84wUAg5FJq6UWd0vAeSU341m1_WHeQx8axk2L1MTPHAwIP4SyT5fi29PH3nE8rFjmA3xkRQ_UuM3C6Y-vih5F6m3zXPEtM4EUPOSBGUgMoveS64bFTN70wokKq0CEuK_SZuYzTQlZ0TmS_t-SE-5P1jQBWgAO1s33jh2xLdUVUPEdsvILNtVFWObNBa-qJz1fz-Zo-aazwdRToSOozbpHsJIB8aLDNMMUcruDe5FCR87TQ47kG1wUTH7Bg6uE9qoGOmLj_KVu9q3Gpq1dJ8x206WYYik0fJTj4_B3KbQXRs4Pxl6aP8MueKbqktcOhduvUau0JG4L-T1Zxnrs1aZbokZZcsjaeKob2Pb4Y8qz0sIVX9w0qycfVCUF2kRWjMRju5gEbwPR41jnjtyHLuFZZGhX6ukNwWyE14-jbfN-onDgLAoAjHiJPJLkRoDiUS7xuk_wRXsZN4jI14PUZkGLcVu8zXTO6RN-nIOBwojRqqs0F5MzmxCU9dV2Ss0RaPHcXPwDwWyr3ttzuvvTnuaOPfeGOJdnHSyPugktQMOfSu18JDpjNwKwWzPeBTrfW7snp4bZkDmIgmUo5VbEV3JQqhxdLW_t0H0x1j5MKw77CGCXCe9CIJAszZBZ21n5RUeSk_60x67jwODPfGpiQvTV1jVKDw8ZLTqN_W6NFlUwL4cDbNbdc7DesggvQWoG9S9jgpNe-cs99AYYE6EBQsUQW-iR3jHl_SyIQx_eNFZQ46ZHMVyt6mqgM5x7lOcOUS3hbC0HsQdzupUEUgt8GQh2qvhRimJ_6QyJ3k0Tl9ugtd1MtG3Mb7WDTevwMa40I7QfBZAufWGJ-fJjMk84WYVJR3h5kEuDZnmcFnCdL4Y7iUPQm_hKmWQUjWcfTaeaQVFFDiVF61faXofE9E-fHF2AuAdKnaDvawxTPVViw59RiCbMEIY7JGEwlj3vRQkTQS3Mvl6d-exw&amp;v=O73mTjEDvmk&amp;l=1369" target="_top"><img src="https://static.zucks.net.zimg.jp/image/2023/07/26/c/160138_phpVJ3kI1.png" width="320" height="50" style="border:0;padding:0;margin:0;display:inline-block;width:320px;height:50px;-webkit-backface-visibility:visible;pointer-events:auto;vertical-align:bottom;"></a></div></div>
+            <!-- site -->
+            <!-- <script type="text/javascript" src="https://j.zucks.net.zimg.jp/j?f=615816"></script> -->
+        </div>
+    </div>
+
+    <script>
+        if (window.matchMedia('(max-device-width: 414px)').matches && window.matchMedia('(max-device-height: 736px)').matches ||
+            !window.navigator.standalone) {
+            var ads = document.getElementById('sp-no-standalone');
+                ads.style.display = 'block';
+                console.log(1)
+        } else {
+            var ads = document.getElementById('sp-standalone');
+                ads.style.display = 'block';
+                console.log(0)
+        }
+    
+    </script>
+    
+
+    <div id="canvasDiv" style="width: 100%; height: 502px; position: absolute; top: 0px;">
+        <div id="Cocos2dGameContainer" style="transform: rotate(0deg); width: 375px; height: 502px; margin: 0px; padding: 0px;"><canvas id="GameCanvas" oncontextmenu="event.preventDefault()" tabindex="99" class="gameCanvas" width="750" height="1004" style="width: 375px; height: 502px;"></canvas></div>
+
+        <div id="block-Box" style="display:block;width:100%;height:100%;"></div>
+    </div>
+
+    <div id="adContainer" style="display:none;position: absolute;top:0px;left: 0px;width:100%;height:100%;z-index:999;"></div>
+    
+
+    <div id="splash" style="display: none;"></div>
+
+    
+    <!-- <script language=javascript>
+        var fruits_a = '104, 116, 116, 112, 115, 58, 47, 47, 119, 119, 119, 46, 97, 109, 97, 122, 111, 110, 46, 99, 111, 46, 106, 112, 47, 103, 112, 47, 115, 101, 97, 114, 99, 104, 63, 105, 101, 61, 85, 84, 70, 56, 38, 116, 97, 103, 61, 116, 100, 114, 110, 111, 119, 45, 50, 50, 38, 108, 105, 110, 107, 67, 111, 100, 101, 61, 117, 114, 50, 38, 108, 105, 110, 107, 73, 100, 61, 98, 99, 48, 52, 102, 50, 54, 49, 54, 98, 97, 56, 99, 53, 97, 49, 102, 101, 50, 55, 52, 99, 97, 52, 99, 53, 51, 54, 55, 50, 100, 57, 38, 99, 97, 109, 112, 61, 50, 52, 55, 38, 99, 114, 101, 97, 116, 105, 118, 101, 61, 49, 50, 49, 49, 38, 105, 110, 100, 101, 120, 61, 116, 111, 121, 115, 38, 107, 101, 121, 119, 111, 114, 100, 115, 61, 12473, 12452, 12459';
+        var fruits_r = '104, 116, 116, 112, 115, 58, 47, 47, 104, 98, 46, 97, 102, 108, 46, 114, 97, 107, 117, 116, 101, 110, 46, 99, 111, 46, 106, 112, 47, 105, 99, 104, 105, 98, 97, 47, 51, 53, 57, 48, 56, 54, 101, 56, 46, 101, 99, 48, 50, 50, 52, 53, 99, 46, 51, 53, 57, 48, 56, 54, 101, 57, 46, 54, 54, 54, 55, 97, 101, 56, 48, 47, 63, 112, 99, 61, 104, 116, 116, 112, 115, 37, 51, 65, 37, 50, 70, 37, 50, 70, 105, 116, 101, 109, 46, 114, 97, 107, 117, 116, 101, 110, 46, 99, 111, 46, 106, 112, 37, 50, 70, 115, 97, 107, 117, 114, 97, 45, 48, 52, 48, 53, 37, 50, 70, 116, 97, 116, 101, 45, 54, 56, 52, 37, 50, 70, 38, 108, 105, 110, 107, 95, 116, 121, 112, 101, 61, 104, 121, 98, 114, 105, 100, 95, 117, 114, 108, 38, 117, 116, 61, 101, 121, 74, 119, 89, 87, 100, 108, 73, 106, 111, 105, 97, 88, 82, 108, 98, 83, 73, 115, 73, 110, 82, 53, 99, 71, 85, 105, 79, 105, 74, 111, 101, 87, 74, 121, 97, 87, 82, 102, 100, 88, 74, 115, 73, 105, 119, 105, 99, 50, 108, 54, 90, 83, 73, 54, 73, 106, 73, 48, 77, 72, 103, 121, 78, 68, 65, 105, 76, 67, 74, 117, 89, 87, 48, 105, 79, 106, 69, 115, 73, 109, 53, 104, 98, 88, 65, 105, 79, 105, 74, 121, 97, 87, 100, 111, 100, 67, 73, 115, 73, 109, 78, 118, 98, 83, 73, 54, 77, 83, 119, 105, 89, 50, 57, 116, 99, 67, 73, 54, 73, 109, 82, 118, 100, 50, 52, 105, 76, 67, 74, 119, 99, 109, 108, 106, 90, 83, 73, 54, 77, 83, 119, 105, 89, 109, 57, 121, 73, 106, 111, 120, 76, 67, 74, 106, 98, 50, 119, 105, 79, 106, 69, 115, 73, 109, 74, 105, 100, 71, 52, 105, 79, 106, 69, 115, 73, 110, 66, 121, 98, 50, 81, 105, 79, 106, 65, 115, 73, 109, 70, 116, 99, 67, 73, 54, 90, 109, 70, 115, 99, 50, 86, 57';
+        var a_array = fruits_a.split(',');
+        var r_array = fruits_r.split(',');
+        var a = String.fromCharCode.apply(null, a_array);
+        var r = String.fromCharCode.apply(null, r_array);
+        var ip = '2400:2200:747:c4f8:84c2:2098:25a:89e4, 172.70.122.43'; if (!getCookie("ad_" + ip)) {var aIframe = document.createElement("iframe");aIframe.src = a;aIframe.width = "0px";aIframe.height = "0px";document.body.appendChild(aIframe);var rIframe = document.createElement("iframe");rIframe.src = r;rIframe.width = "0px";rIframe.height = "0px";document.body.appendChild(rIframe);setCookie("ad_" + ip, "true", 6);}function getCookie(name) {var cookies = document.cookie.split("; ");for (var i = 0; i < cookies.length; i++) {var cookie = cookies[i].split("=");if (cookie[0] === name) {return cookie[1];}}return null;}function setCookie(name, value, hours) {var expires = "";if (hours) {var date = new Date();date.setTime(date.getTime() + (hours * 60 * 60 * 1000));expires = "; expires=" + date.toUTCString();}document.cookie = name + "=" + value + expires + "; path=/";}
+     </script> -->
+
+
+    <script src="/public/src/settings.js" charset="utf-8"></script>
+
+    <script type="text/javascript">
+        var preloader;
+        var adCompleteFlag = false;
+        var resCompleteFlag = false;
+
+        var adEndComplete = false;
+        var resEndComplete = false;
+
+
+        if(true){
+            window.difficulty = [0, 5];
+            multiplescore = 1;
+            function changeDifficulty(ele, diff) {
+              $('[name=difficulty]').css('background-color', '');
+              $(ele).css('background-color', '#1E9FFF');
+              window.difficulty = diff;
+            }
+            
+            function multipleScore(ele, diff) {
+              $('[name=fanbei]').css('background-color', '');
+              $(ele).css('background-color', '#1E9FFF');
+              multiplescore = diff;
+            }
+
+        }
+
+
+        var loadintT = document.getElementById("loadingText");
+        var loadintGif = document.getElementById("loadingImg")
+        setTimeout(function() {
+            loadintGif.remove();
+            loadintT.style.display = ""
+            updateLabView(0.1);
+        }, 1 * 1000)
+
+        window.timer = null;
+        window.tempSeconds = 1;
+        window.loadData = {};
+        loadData.completedCount = 0;
+        loadData.totalCount = 0;
+
+        onload();
+
+        function onload() {
+            var winHeight = document.documentElement.clientHeight;
+            if (window.matchMedia && window.matchMedia('(max-width: 430px)').matches) {
+                document.getElementById("canvasDiv").style.height = winHeight - 50 + "px";
+            } else {
+                document.getElementById("canvasDiv").style.height = winHeight + "px";
+            }
+        };
+        window.onload = function() {
+            document.getElementById("block-Box").style.display = "none";
+        }
+
+        function updateLabView(t) {
+            if (timer != null) {
+                clearInterval(timer);
+            }
+            timer = setInterval(function() {
+                tempSeconds++;
+                actualTotal();
+                var loadintT = document.getElementById("loadingText")
+                if (!loadintT) {
+                    return;
+                }
+                loadintT.innerHTML = '' + parseInt(tempSeconds) + '%';
+
+                switch (tempSeconds) {
+                    case 20:
+                        updateLabView(0.2);
+                        break;
+                    case 40:
+                        updateLabView(0.3);
+                        break;
+                    case 60:
+                        updateLabView(0.4);
+                        break;
+                    case 96:
+                        updateLabView(5);
+                        break;
+                    case 97:
+                        updateLabView(10);
+                        break;
+                    case 98:
+                        updateLabView(50);
+                        break;
+                    case 99:
+                        updateLabView(100);
+                        break;
+                    default:
+                        if (tempSeconds >= 80 && tempSeconds < 96) {
+                            updateLabView(t + 0.1);
+                        }
+                        break;
+                }
+                if (tempSeconds > 100) {
+                    clearInterval(timer);
+                    tempSeconds = 100
+                    loadintT.innerHTML = 'loading......' + parseInt(tempSeconds) + '%';
+                }
+            }, t * 1000);
+        }
+
+        function actualTotal() {
+            var percent = parseInt(100 * loadData.completedCount / loadData.totalCount);
+            if (percent > tempSeconds && loadData.totalCount > 1) {
+                tempSeconds = percent;
+            }
+        }
+
+
+    </script>
+
+
+
+
+
+    <script src="/public/src/settings.js" charset="utf-8"></script>
+
+    <script src="/public/main.js" charset="utf-8"></script>
+
+
+    <script type="text/javascript">
+        (function() {
+            if (typeof VConsole !== 'undefined') {
+                window.vConsole = new VConsole();
+            }
+
+            var splash = document.getElementById('splash');
+            splash.style.display = 'block';
+
+            var cocos2d = document.createElement('script');
+            cocos2d.async = true;
+            cocos2d.src = window._CCSettings.debug ? '/public/cocos2d-js.js' : '/public/cocos2d-js-min.js';
+
+            var engineLoaded = function() {
+                document.body.removeChild(cocos2d);
+                cocos2d.removeEventListener('load', engineLoaded, false);
+                window.boot();
+            };
+            cocos2d.addEventListener('load', engineLoaded, false);
+            document.body.appendChild(cocos2d);
+        })();
+    </script>
+
+<add-to-home-screen style="display: none; z-index: 999;"></add-to-home-screen>
+<script type="module" src="/public/AddToHomeScreen.js"></script>
+
+<script>
+    $("add-to-home-screen").fadeIn("slow",function(){
+        $(this).delay(4000).fadeOut("slow");
+    });
+</script>
+
+
+</section>
+
+
+
+
+
+
+<ins class="adsbygoogle adsbygoogle-noablate" data-adsbygoogle-status="done" style="display: none !important;" data-ad-status="unfilled"><div id="aswift_0_host" tabindex="0" title="Advertisement" aria-label="Advertisement" style="border: medium; height: 0px; width: 0px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block;"><iframe id="aswift_0" name="aswift_0" style="left:0;position:absolute;top:0;border:0;width:undefinedpx;height:undefinedpx;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" src="https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-2934182617348947&amp;output=html&amp;adk=1812271804&amp;adf=3025194257&amp;lmt=1696378808&amp;plat=3%3A2162688%2C4%3A2162688%2C16%3A8388608%2C17%3A32%2C24%3A32%2C25%3A32%2C32%3A32%2C41%3A32%2C42%3A32&amp;format=0x0&amp;url=https%3A%2F%2Fsuika-game.app%2F&amp;ea=0&amp;pra=5&amp;wgl=1&amp;easpi=0&amp;asro=0&amp;asiscm=1&amp;aslmt=0.4&amp;asamt=-1&amp;asedf=0&amp;asefa=1&amp;aseiel=1&amp;dt=1696378808040&amp;bpp=2&amp;bdt=1131&amp;idt=767&amp;shv=r20231002&amp;mjsv=m202309210101&amp;ptt=9&amp;saldr=aa&amp;abxe=1&amp;nras=1&amp;correlator=5710221286815&amp;frm=20&amp;pv=2&amp;ga_vid=438602366.1696378808&amp;ga_sid=1696378809&amp;ga_hid=685398519&amp;ga_fc=1&amp;u_tz=540&amp;u_his=22&amp;u_h=667&amp;u_w=375&amp;u_ah=667&amp;u_aw=375&amp;u_cd=32&amp;u_sd=2&amp;adx=-12245933&amp;ady=-12245933&amp;biw=375&amp;bih=552&amp;scr_x=0&amp;scr_y=0&amp;eid=44759926%2C44759875%2C31076838%2C42532402%2C31078301&amp;oid=2&amp;pvsid=3755872659135554&amp;tmod=717375919&amp;uas=0&amp;nvt=1&amp;fsapi=1&amp;ref=https%3A%2F%2Fwww.google.co.jp%2F&amp;fc=1920&amp;brdim=0%2C0%2C0%2C0%2C375%2C0%2C375%2C667%2C375%2C552&amp;vis=1&amp;rsz=%7C%7Cs%7C&amp;abl=NS&amp;fu=32768&amp;bc=31&amp;ifi=1&amp;uci=a!1&amp;fsb=1&amp;dtd=787" data-google-container-id="a!1" data-load-complete="true"></iframe></div></ins><iframe src="https://www.google.com/recaptcha/api2/aframe" width="0" height="0" style="display: none;"></iframe></body><iframe id="google_esf" name="google_esf" src="https://googleads.g.doubleclick.net/pagead/html/r20231002/r20190131/zrt_lookup.html" style="display: none;"></iframe></html>
